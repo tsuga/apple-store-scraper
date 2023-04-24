@@ -1,8 +1,8 @@
-![build](https://img.shields.io/github/workflow/status/cowboy-bebug/app-store-scraper/Build)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/cowboy-bebug/app-store-scraper/pulls)
-[![PyPI](https://img.shields.io/pypi/v/app-store-scraper)](https://pypi.org/project/app-store-scraper/)
-![downloads](https://img.shields.io/pypi/dm/app-store-scraper)
-![license](https://img.shields.io/pypi/l/app-store-scraper)
+![build](https://img.shields.io/github/workflow/status/hiyali/apple-store-scraper/Build)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/hiyali/apple-store-scraper/pulls)
+[![PyPI](https://img.shields.io/pypi/v/apple-store-scraper)](https://pypi.org/project/apple-store-scraper/)
+![downloads](https://img.shields.io/pypi/dm/apple-store-scraper)
+![license](https://img.shields.io/pypi/l/apple-store-scraper)
 ![code style](https://img.shields.io/badge/code%20style-black-black)
 
 ```
@@ -20,12 +20,13 @@
 
 Install:
 ```console
-pip3 install app-store-scraper
+pip3 install apple-store-scraper
 ```
 
 Scrape reviews for an app:
+
 ```python
-from app_store_scraper import AppStore
+from apple_store_scraper import AppStore
 from pprint import pprint
 
 minecraft = AppStore(country="nz", app_name="minecraft")
@@ -36,8 +37,9 @@ pprint(minecraft.reviews_count)
 ```
 
 Scrape reviews for a podcast:
+
 ```python
-from app_store_scraper import Podcast
+from apple_store_scraper import Podcast
 from pprint import pprint
 
 sysk = Podcast(country="nz", app_name="stuff you should know")

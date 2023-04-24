@@ -1,4 +1,4 @@
-from app_store_scraper import AppStore, Podcast
+from apple_store_scraper import AppStore, Podcast
 from datetime import datetime, timedelta
 
 
