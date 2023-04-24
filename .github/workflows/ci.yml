@@ -46,7 +46,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Check version bump and set versions as envvar
-        if: github.ref != 'refs/heads/master'
+        if: github.ref != 'refs/heads/main'
         run: |
           FILES_CHANGED=$(echo -n $(git diff origin/${{ github.base_ref }} --name-only))
           if [[ $FILES_CHANGED != *.py ]]; then
@@ -86,7 +86,7 @@ jobs:
           echo "Old version: $VERSION_OLD"
           echo "New version: $VERSION_NEW"
       - name: Check for patch version bump
-        if: ${{ !startsWith(github.head_ref, 'release') && github.ref != 'refs/heads/master' }}
+        if: ${{ !startsWith(github.head_ref, 'release') && github.ref != 'refs/heads/main' }}
         run: |
           if [ "$FILES_CHANGED" = false ]; then
             echo "No Python scripts are modified"
@@ -107,7 +107,7 @@ jobs:
             exit 1
           fi
       - name: Check for major / minor version bump
-        if: ${{ startsWith(github.head_ref, 'release') && github.ref != 'refs/heads/master' }}
+        if: ${{ startsWith(github.head_ref, 'release') && github.ref != 'refs/heads/main' }}
         run: |
           if (($VERSION_OLD_MAJOR < $VERSION_NEW_MAJOR)); then
             echo "Bumped major version $VERSION_OLD -> $VERSION_NEW"
@@ -120,7 +120,7 @@ jobs:
             exit 1
           fi
       - name: Create and push tag
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: |
           version=$(echo -n $(git diff HEAD^1 -G '__version__' apple_store_scraper/__version__.py))
           version=$(echo "$version" | sed -E "s/.*\+__version__.*([0-9]+\.[0-9]+\.[0-9]+).+/\1/")
