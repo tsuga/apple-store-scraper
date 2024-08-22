@@ -2,7 +2,7 @@ import setuptools
 
 about = dict()
 
-with open("apple_store_scraper/__version__.py", "r") as f:
+with open("apple_store_scraper/__version__.py", "rb") as f:
     exec(f.read(), about)
 
 with open("README.md", "r") as f:
